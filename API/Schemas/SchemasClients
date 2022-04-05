@@ -1,0 +1,21 @@
+
+
+class ClientsInUpdate(BaseModel):
+    
+    
+    nomClient: Optional[str] = None
+    prenomClient: Optional[str] = None
+    DoBClient: Optional[str] = None
+    profession: Optional[str] = None
+    CNI: Optional[str] = None
+    emailClient: Optional[str] = None
+    telClient: Optional[str] = None
+
+
+
+# from pydantic import BaseModel
+
+# from app.models.domain.profiles import Profile
+
+# class ProfileInResponse(BaseModel):
+#     profile: Profile
