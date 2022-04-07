@@ -7,6 +7,7 @@ from pydantic import BaseModel, EmailStr
 
 class UserInLogin(RWSchema):
     email: EmailStr
+    username : str
     password: str
 
 class UserInCreate(UserInLogin):
@@ -14,15 +15,15 @@ class UserInCreate(UserInLogin):
 
 class UserInUpdate(BaseModel):
     idUser: int
-    username: Optional[str] = None
+    username: str
     email: Optional[EmailStr] = None
-    password: Optional[str] = None
-    nom: Optional[str] = None
-    prenom: Optional[str] = None
+    password: str
+    nom: str
+    prenom: str
     tel: Optional[str] = None
-    typeUser: Optional[str] = None
-    DoB: Optional[str] = None
-    trash: Optional[str] = None
+    typeUser: int
+    DoB: int
+    trash: bool
     
     
 class UserWithToken(User):

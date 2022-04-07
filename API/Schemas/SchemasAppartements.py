@@ -18,16 +18,23 @@ class AppartementInResponse(RWSchema):
 
 
 class AppartementInCreate(RWSchema):
-    title: str
+    adress: str
+    ville: str
+    taille: int
+    nb_chambre : int
     description: str
-    body: str
-    tags: List[str] = Field([], alias="tagList")
+    loyer_min: str
+    libre : bool
 
 
 class AppartementInUpdate(RWSchema):
-    title: Optional[str] = None
-    description: Optional[str] = None
-    body: Optional[str] = None
+    adress: str
+    ville: str
+    taille: int
+    nb_chambre : int
+    description: str
+    loyer_min: str
+    libre : bool
 
 
 class ListOfAppartementsInResponse(RWSchema):
