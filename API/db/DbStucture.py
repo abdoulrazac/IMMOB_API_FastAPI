@@ -5,24 +5,35 @@ from sqlalchemy import String
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import relationship
 
+import datetime 
+
 Base = declarative_base()
 
-class User(Base):
-    __tablename__ = "users"
+class ClasseBase(Base):
     id = Column(Integer, primary_key=True)
-    nom = Column(String(30))
-    prenom = Column(String)
-    addresses = relationship(
-        "Address", back_populates="user", cascade="all, delete-orphan"
-    )
-    def __repr__(self):
-        return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+    create_at  = Column(DateTime, default = datetime.datetime.utcnow)
+    update_at  = Column(DateTime, default = datetime.datetime.utcnow)
 
-class Address(Base):
-    __tablename__ = "address"
-    id = Column(Integer, primary_key=True)
-    email_address = Column(String, nullable=False)
-    user_id = Column(Integer, ForeignKey("user_account.id"), nullable=False)
-    user = relationship("User", back_populates="addresses")
-    def __repr__(self):
-        return f"Address(id={self.id!r}, email_address={self.email_address!r})"
+
+class User(ClasseBase):
+    __tablename__ = "users"
+    user_name = Column(String(30))
+    password = Column(String(30))
+    nom = Column(String(30))
+    prenom = Column(String(30))
+    tel = Column(Int(10))
+    user_type = Column(bool)
+    date_naissance = Column(Date)
+    trash = Column(bool)
+    email = Column(String(70)) 
+
+
+class Client(ClasseBase):
+    __tablename__ = "clients"
+    nom = Column(String(30))
+    prenom = Column(String(30))
+    date_naissance = Column(Date)
+    profession = Column(String(30))
+    CNI = Column(Integer)
+    email = Column(String(70)) 
+    tel = Column(Int(10))
