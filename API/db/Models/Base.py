@@ -1,6 +1,5 @@
-from sqlalchemy import Column, Integer, DateTime
 from sqlalchemy.ext.declarative import declared_attr
-import datetime 
+import datetime
 
 class BaseModel(object):
     @declared_attr
@@ -9,3 +8,6 @@ class BaseModel(object):
     id = Column(Integer, primary_key=True)
     create_at  = Column(DateTime, default = datetime.datetime.utcnow())
     update_at  = Column(DateTime, default = datetime.datetime.utcnow())
+
+
+    
