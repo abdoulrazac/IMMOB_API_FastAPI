@@ -1,10 +1,11 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from pydantic import BaseConfig, BaseModel, create_model
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import declarative_base
-from Base import BaseModel
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+import datetime 
 
-class Client(BaseModel, Base):
+class Client(BaseModel):
     __tablename__ = "clients"
     nom = Column(String(30))
     prenom = Column(String(30))
@@ -12,4 +13,4 @@ class Client(BaseModel, Base):
     profession = Column(String(30))
     CNI = Column(Integer)
     email = Column(String(70)) 
-    tel = Column(Integer)
+    tel = Column(Integer(10))

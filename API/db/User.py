@@ -1,18 +1,17 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DateTime
+from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Boolean
 from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import relationship
-from Base import ClasseBase as Base
+from Base import BaseModel
 
-import datetime 
+Base = declarative_base()
 
-class User(Base):
+class User(BaseModel, Base):
     __tablename__ = "users"
     user_name = Column(String(30))
     password = Column(String(30))
     nom = Column(String(30))
     prenom = Column(String(30))
-    tel = Column(Integer(10))
-    user_type = Column(bool)
+    tel = Column(Integer)
+    user_type = Column(Boolean)
     date_naissance = Column(DateTime)
-    trash = Column(bool)
+    trash = Column(Boolean)
     email = Column(String(70)) 

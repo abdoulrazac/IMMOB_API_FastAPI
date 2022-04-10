@@ -1,12 +1,10 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, DateTime, Boolean
+from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import relationship
-from Base import ClasseBase as Base
+from Base import BaseModel
 
-import datetime
+Base = declarative_base()
 
-
-class Appartement(Base):
+class Appartement(BaseModel, Base):
     __tablename__ = "appartements"
     adresse = Column(String(30))
     ville = Column(String(30))
