@@ -14,7 +14,7 @@ class UserInCreate(UserInLogin):
     username: str
 
 class UserInUpdate(BaseModel):
-    idUser: int
+    user_id: int
     username: str
     email: Optional[EmailStr] = None
     password: str
