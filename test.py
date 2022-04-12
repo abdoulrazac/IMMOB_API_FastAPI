@@ -16,3 +16,9 @@ class School(Base):
                 
 
 Base.metadata.create_all(engine)
+
+
+# POUR SAUVER LES CHANGEMENTS :
+# git add *
+# git commit --m "message"
+# git push

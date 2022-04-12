@@ -24,7 +24,3 @@ class ClientsInUpdate(BaseModel):
 
 
 
-# POUR SAUVER LES CHANGEMENTS :
-# git add *
-# git commit --m "message"
-# git push

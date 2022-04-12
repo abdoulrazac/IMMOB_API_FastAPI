@@ -8,4 +8,5 @@ class User(BaseModel, Base):
     user_type = Column(Boolean)
     date_naissance = Column(DateTime)
     trash = Column(Boolean)
-    email = Column(String(70)) 
+    email = Column(String(70))
+    salt = Column(String(20))

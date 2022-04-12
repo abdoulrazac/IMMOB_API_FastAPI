@@ -1,6 +1,7 @@
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
+from SchemasBase import SchemasModel
 
 # from app.models.domain.appartements import Appartement
 # from app.models.schemas.rwschema import RWSchema
@@ -9,15 +10,25 @@ DEFAULT_ARTICLES_LIMIT = 20
 DEFAULT_ARTICLES_OFFSET = 0
 
 
-class AppartementForResponse(RWSchema, Appartement):
+class AppartementForResponse(SchemasModel, Appartement):
     tags: List[str] = Field(..., alias="tagList")
 
 
-class AppartementInResponse(RWSchema):
+class AppartementInResponse(SchemasModel):
     appartement: AppartementForResponse
 
 
-class AppartementInCreate(RWSchema):
+class AppartementInCreate(SchemasModel):
+    adress: str
+    ville: str
+    taille: int
+    nb_chambre : int
+    prix: int
+    loyer_min: int
+    disponible : bool
+
+
+class AppartementInUpdate(SchemasModel):
     adress: str
     ville: str
     taille: int
@@ -27,17 +38,7 @@ class AppartementInCreate(RWSchema):
     libre : bool
 
 
-class AppartementInUpdate(RWSchema):
-    adress: str
-    ville: str
-    taille: int
-    nb_chambre : int
-    description: str
-    loyer_min: str
-    libre : bool
-
-
-class ListOfAppartementsInResponse(RWSchema):
+class ListOfAppartementsInResponse(SchemasModel):
     appartements: List[AppartementForResponse]
     appartements_count: int
 
