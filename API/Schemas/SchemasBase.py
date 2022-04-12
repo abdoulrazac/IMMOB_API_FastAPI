@@ -1,8 +1,3 @@
-from app.models.domain.rwmodel import RWModel
-
-
-
-
 import datetime
 
 from pydantic import BaseConfig, BaseModel
@@ -19,12 +14,14 @@ def convert_field_to_camel_case(string: str) -> str:
     )
 
 
-class RWModel(BaseModel):
+class ModelBase(BaseModel):
     class Config(BaseConfig):
         allow_population_by_field_name = True
         json_encoders = {datetime.datetime: convert_datetime_to_realworld}
         alias_generator = convert_field_to_camel_case
         
-class RWSchema(RWModel):
-    class Config(RWModel.Config):
+class SchemasBase(ModelBase):
+    class Config(ModelBase.Config):
         orm_mode = True
+
+    

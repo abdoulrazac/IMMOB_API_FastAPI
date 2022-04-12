@@ -1,42 +1,44 @@
-from typing import Optional
+import datetime
+from typing import Optional, DateTime
 from pydantic import BaseModel, EmailStr
 
-from SchemasBase import SchemasModel
+from API.Schemas.SchemasBase import SchemasModel
 
 # from app.models.domain.users import User
 # from app.models.schemas.rwschema import RWSchema
 
-class UserInLogin(SchemasModel):
-    email: EmailStr
+class User(SchemasModel):
+    username: str
+
+class UserInLogin(BaseModel):
+    email: Optional[EmailStr]
     username : Optional[str]
     password: str
 
-class UserInCreate(UserInLogin):
-    user_id: int
-    username: str
-    email: Optional[EmailStr] = None
-    password: str
-    nom: str
-    prenom: str
-    tel: Optional[str] = None
-    typeUser: int
-    DoB: int
-    trash: bool
-
 class UserInUpdate(BaseModel):
     id: int
-    user_name: str
-    password: str
     nom: str
     prenom: str
     tel: Optional[str]
-    user_type: int
-    date_naissance: int
-    trash: bool
+    date_naissance: datetime.datetime
     email: str
-    salt: str
-    
-class UserWithToken(User): #####################
+
+class UserInCreate(UserInUpdate):
+    username: str
+    email: Optional[EmailStr] = None
+    password: str
+    password_valid: str
+    typeUser: int
+    trash: bool = False
+
+class UserInDb(UserInUpdate):
+    username: str
+    email: Optional[EmailStr] = None
+    password: str
+    typeUser: int
+    trash: bool = False
+
+class UserWithToken(User):
     token: str
 
 class UserInResponse(SchemasModel):

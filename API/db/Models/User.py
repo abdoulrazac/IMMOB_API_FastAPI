@@ -7,6 +7,6 @@ class User(BaseModel, Base):
     tel = Column(Integer)
     user_type = Column(Boolean)
     date_naissance = Column(DateTime)
-    trash = Column(Boolean)
+    trash = Column(Boolean, default = False)
     email = Column(String(70))
-    salt = Column(String(20))
+    salt = Column(String(70))
