@@ -11,7 +11,16 @@ class UserInLogin(RWSchema):
     password: str
 
 class UserInCreate(UserInLogin):
+    user_id: int
     username: str
+    email: Optional[EmailStr] = None
+    password: str
+    nom: str
+    prenom: str
+    tel: Optional[str] = None
+    typeUser: int
+    DoB: int
+    trash: bool
 
 class UserInUpdate(BaseModel):
     user_id: int
