@@ -11,5 +11,10 @@ class BaseModel(object):
     create_at  = Column(DateTime, default = datetime.datetime.utcnow())
     update_at  = Column(DateTime, default = datetime.datetime.utcnow())
 
-
+    def dict(self):
+        return {
+            "id": self.id,
+            "create_at": self.create_at,
+            "update_at": self.update_at,
+        }
     

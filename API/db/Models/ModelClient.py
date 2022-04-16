@@ -7,3 +7,14 @@ class Client(BaseModel, Base):
     CNI = Column(Integer)
     email = Column(String(70)) 
     tel = Column(Integer)
+
+    def dict(self):
+        return {
+            "nom": self.nom,
+            "prenom": self.prenom,
+            "date_naissance": self.date_naissance,
+            "profession": self.profession,
+            "CNI": self.CNI,
+            "email": self.email,
+            "tel": self.tel
+        }

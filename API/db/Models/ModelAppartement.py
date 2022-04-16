@@ -8,3 +8,13 @@ class Appartement(BaseModel, Base):
     loyer_min = Column(Integer) 
     disponible = Column(Boolean)
     
+    def dict(self):
+        return{
+            "adresse": self.adresse,
+            "ville": self.ville,
+            "taille": self.taille,
+            "nb_chambre": self.nb_chambre,
+            "prix": self.prix,
+            "loyer_min": self.loyer_min,
+            "disponible": self.disponible
+        }
