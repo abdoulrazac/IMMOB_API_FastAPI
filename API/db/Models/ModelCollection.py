@@ -7,7 +7,7 @@ import pathlib
 Base = declarative_base()
 
 path = str(pathlib.Path(__file__).parent.absolute())
-exclude_files = ["__init__.py", "ModelBase.py", "init_db.py"]
+exclude_files = ["__init__.py", "ModelBase.py", "init_db.py", "ModelCollection.py"]
 files = os.listdir(path)
 
 exec(open(path + "/ModelBase.py").read())
@@ -16,5 +16,4 @@ for file in files:
         exec(open(path + "/" + file).read())
 
 
-# engine = create_engine('sqlite:///test.db', echo=True)
-# Base.metadata.create_all(engine)
+engine = create_engine('sqlite:///test.db', echo=True)

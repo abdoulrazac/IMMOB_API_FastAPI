@@ -1,5 +1,7 @@
 import datetime
-from pydantic import BaseModel, Field, validator
+import uuid
+from uuid import UUID
+from pydantic import BaseModel, validator
 
 
 class DateTimeModelMixin(BaseModel):
@@ -15,4 +17,5 @@ class DateTimeModelMixin(BaseModel):
 
 
 class IDModelMixin(BaseModel):
-    id_: int = Field(0, alias="id")
+    id: UUID = uuid.uuid4()
+
