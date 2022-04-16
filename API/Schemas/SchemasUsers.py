@@ -3,7 +3,6 @@ from typing import Optional, DateTime
 from pydantic import BaseModel, EmailStr
 
 from API.Schemas.SchemasBase import SchemasModel
-
 # from app.models.domain.users import User
 # from app.models.schemas.rwschema import RWSchema
 
@@ -15,7 +14,7 @@ class UserInLogin(BaseModel):
     username : Optional[str]
     password: str
 
-class UserInUpdate(BaseModel):
+class UserInUpdate(DateTimeModelMixin):
     id: int
     nom: str
     prenom: str
