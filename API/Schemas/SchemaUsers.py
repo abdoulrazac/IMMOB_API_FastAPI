@@ -2,7 +2,7 @@ import datetime
 from typing import Optional, DateTime
 from pydantic import BaseModel, EmailStr
 
-from API.Schemas.SchemasBase import SchemasModel
+from API.Schemas.SchemaBase import SchemasModel
 # from app.models.domain.users import User
 # from app.models.schemas.rwschema import RWSchema
 

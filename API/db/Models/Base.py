@@ -6,7 +6,7 @@ class BaseModel(object):
     def __tablename__ (cls):
         return cls.__name__.lower()
         
-    id = Column(Integer, primary_key=True)
+    id = Column(str, primary_key=True)
     create_at  = Column(DateTime, default = datetime.datetime.utcnow())
     update_at  = Column(DateTime, default = datetime.datetime.utcnow())
 
