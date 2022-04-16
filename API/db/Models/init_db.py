@@ -7,10 +7,10 @@ import pathlib
 Base = declarative_base()
 
 path = str(pathlib.Path(__file__).parent.absolute())
-exclude_files = ["__init__.py", "Base.py", "init_db.py"]
+exclude_files = ["__init__.py", "ModelBase.py", "init_db.py"]
 files = os.listdir(path)
 
-exec(open(path + "/Base.py").read())
+exec(open(path + "/ModelBase.py").read())
 for file in files:
     if file not in exclude_files:
         exec(open(path + "/" + file).read())
